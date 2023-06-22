@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="motorcycle_registry.registry_list_action">
+            <field name="view_mode">tree,form,map</field>
+        </record>
+    </data>
+</odoo>
