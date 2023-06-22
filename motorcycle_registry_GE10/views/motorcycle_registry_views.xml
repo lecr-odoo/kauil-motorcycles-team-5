@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Adding map view to project-->
+    <record id="motorcycle_registry_view_map" model="ir.ui.view">
+        <field name="name">motorcycle.registry.view.map</field>
+        <field name="model">motorcycle.registry</field>
+        <field name="priority">12</field>
+        <field name="arch" type="xml">
+            <map res_partner="owner_id">
+                <field name="owner_id" string="Owner"/>
+                <field name="owner_phone" string="Phone"/>
+                <field name="owner_email" string="Email"/>
+                <field name="vin" string="VIN"/>
+                <field name="brand" string="Brand"/>
+                <field name="make" string="Make"/>
+                <field name="model" string="Model"/>
+                <field name="license_plate" string="License Plate"/>
+                <field name="current_mileage" string="Current Mileage"/> 
+            </map>
+        </field>
+    </record>
+
+</odoo>
