@@ -14,6 +14,10 @@
     "license": "OPL-1",
     
     "depends": ["motorcycle_registry_GE1"],
+
+    "data": [
+        'views/motorcycle_registry_views.xml'
+    ],
     
     "author": "kauil-motors",
     
