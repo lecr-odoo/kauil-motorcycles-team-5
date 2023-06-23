@@ -16,7 +16,8 @@
     "depends": ["motorcycle_registry_GE1"],
 
     "data": [
-        'views/motorcycle_registry_views.xml'
+        'views/motorcycle_registry_views.xml',
+        'views/stock_production_lot_tree_views.xml'
     ],
     
     "author": "kauil-motors",
