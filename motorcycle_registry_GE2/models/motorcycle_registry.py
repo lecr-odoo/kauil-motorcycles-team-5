@@ -13,7 +13,4 @@ class MotorcycleRegistry(models.Model):
             if vals.get('registry_number', ('New')) == ('New'):
                 vals['registry_number'] = self.env['ir.sequence'].next_by_code('registry.number')
         return super().create(vals_list)
-    
-    @api.constrains("lot_id")
-    def _enforce_one_2_one(self):
-        return
+
