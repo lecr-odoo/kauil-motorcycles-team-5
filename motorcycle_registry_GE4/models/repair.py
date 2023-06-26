@@ -6,10 +6,10 @@ class Repair(models.Model):
 
     vin = fields.Char(string='VIN')
     current_mileage = fields.Float(string='current_mileage')
-    registry_id = fields.Many2one(comodel_name='motorcycle.registry', string='Registry ID', compute='_get_registry_id_from_vin')
+    registry_id = fields.Many2one(comodel_name='motorcycle.registry', string='Registry ID', compute='_get_registry_id_from_vin', store=True)
 
     # The following fields are overrode to be related to registry_id.
-    partner_id = fields.Many2one(relatiion='registry_id')
+    partner_id = fields.Many2one(relation='registry_id')
     sale_order_id = fields.Many2one(relation='registry_id')
     product_id = fields.Many2one(relation='registry_id')
 
