@@ -7,10 +7,8 @@ class MotorcycleRegistry(models.Model):
     lot_id = fields.One2many(comodel_name="stock.lot", inverse_name="registry_id")
     sale_order = fields.Many2one(comodel_name="sale.order")
 
-    @api.model_create_multi
-    def create(self, vals_list):
-        for vals in vals_list:
-            if vals.get('registry_number', ('New')) == ('New'):
-                vals['registry_number'] = self.env['ir.sequence'].next_by_code('registry.number')
-        return super().create(vals_list)
+    @api.constrains("sale_order")
+    def _populate_owner(self):
+        if self.sale_order:
+            self.owner_id = self.sale_order.partner_id.id
 
