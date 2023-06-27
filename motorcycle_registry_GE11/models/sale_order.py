@@ -61,7 +61,7 @@ class SaleOrder(models.Model):
     def _onchange_partner_shipping_id_warehouse(self):
         buffalo_coords = (42.8864, 78.8784)
         sf_coords = (37.7749, 122.4194)
-        if self.partner_shipping_id:
+        if self.partner_shipping_id and self.partner_shipping_id.state_id.code:
             if GD(buffalo_coords, self.states_coords[self.partner_shipping_id.state_id.code]).km < GD(sf_coords, self.states_coords[self.partner_shipping_id.state_id.code]).km:
                 self.warehouse_id = self.env['stock.warehouse'].search([('code', '=', 'BUD')]).id
             else:
