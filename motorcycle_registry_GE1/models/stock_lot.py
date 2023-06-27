@@ -20,7 +20,7 @@ class StockLot(models.Model):
         """Return the next serial number to be attributed to the product."""
         if product.tracking != "none" and product.product_tmpl_id.detailed_type == 'motorcycle':
             serial_number_prefix = self._compute_prefix_from_vin(product)
-            return serial_number_prefix + self.env['ir.sequence'].next_by_code('stock.lot.serial')
+            return serial_number_prefix + self.env['ir.sequence'].next_by_code('stock.lot.serial')[1:]
         else:
             return super(StockLot, self)._get_next_serial(company, product)
 
