@@ -8,7 +8,8 @@ class MotorcycleRegistryPortal(CustomerPortal):
 
         Registry = request.env['motorcycle.registry']
         if 'registry_count' in counters: #currently broken, registry_count is not being populated in counters variable
-            domain = self._get_portal_default_domain()
-            values['registry_count'] = Registry.search_count(domain)
+            values['registry_count'] = Registry.search_count([]) \
+                if Registry.check_access_rights('read', raise_exception=False) else 0
 
+   
         return values
